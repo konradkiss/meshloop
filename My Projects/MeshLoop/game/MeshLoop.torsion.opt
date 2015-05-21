@@ -1,0 +1,28 @@
+<TorsionProjectOptions>
+<Address>127.0.0.1</Address>
+<Password>password</Password>
+<Port>6060</Port>
+<LastConfig>Debug</LastConfig>
+<Breakpoints/>
+<Bookmarks/>
+<OpenFiles>
+<File ScrollX="0" ScrollY="266">gui\menu.cs</File>
+<File ScrollX="0" ScrollY="768">gui\app.gui</File>
+<File ScrollX="0" ScrollY="72">gui\meshes.cs</File>
+<File ScrollX="0" ScrollY="91">core\materials.cs</File>
+<File ScrollX="0" ScrollY="60">lighting\lightViz.cs</File>
+<File ScrollX="0" ScrollY="13">lighting\blinit.cs</File>
+<File ScrollX="0" ScrollY="139">lighting\shaders.cs</File>
+<File ScrollX="0" ScrollY="0">main.cs</File>
+<File ScrollX="0" ScrollY="0" Active="true">gui\cam.cs</File>
+<File ScrollX="0" ScrollY="30">gui\filedialog.cs</File>
+<File ScrollX="0" ScrollY="0">core\canvas.cs</File>
+<File ScrollX="0" ScrollY="41">gui\sequences.cs</File>
+<File ScrollX="0" ScrollY="0">core\collada.cs</File>
+<File ScrollX="0" ScrollY="0">core\main.cs</File>
+<File ScrollX="0" ScrollY="0">core\wdefaults.cs</File>
+<File ScrollX="0" ScrollY="0">gui\lights.cs</File>
+<File ScrollX="0" ScrollY="103">lighting\postFx\dof.cs</File>
+<File ScrollX="0" ScrollY="0">gui\hud.cs</File>
+</OpenFiles>
+</TorsionProjectOptions>

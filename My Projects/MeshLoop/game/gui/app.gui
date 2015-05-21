@@ -1,0 +1,1302 @@
+//--- OBJECT WRITE BEGIN ---
+%guiContent = new GuiBitmapCtrl(ViewGui) {
+   canSaveDynamicFields = "0";
+   Enabled = "1";
+   isContainer = "1";
+   Profile = "GuiInputCtrlProfile";
+   HorizSizing = "right";
+   VertSizing = "bottom";
+   position = "0 0";
+   Extent = "800 600";
+   MinExtent = "8 8";
+   canSave = "1";
+   Visible = "1";
+   tooltipprofile = "GuiToolTipProfile";
+   hovertime = "1000";
+   wrap = "0";
+   bitmap = "gui/images/bg1.jpg";
+   
+   new GuiObjectView(View) {
+      canSaveDynamicFields = "0";
+      isContainer = "0";
+      Profile = "GuiDefaultProfile";
+      HorizSizing = "width";
+      VertSizing = "height";
+      Position = "0 0";
+      Extent = "800 600";
+      MinExtent = "48 48";
+      canSave = "1";
+      Visible = "1";
+      tooltipprofile = "GuiToolTipProfile";
+      hovertime = "1000";
+      alpha = "1";
+      color = "255 255 255 255";
+      unitClip = "0 0 1 1";
+      Margin = "0 0 0 0";
+      Padding = "0 0 0 0";
+      AnchorTop = "1";
+      AnchorBottom = "0";
+      AnchorLeft = "1";
+      AnchorRight = "0";
+      cameraZRot = "0";
+      forceFOV = "0";
+      lockXRotation = "0";
+      lockZRotation = "0";
+      lockedXRotation = mDegToRad(45);
+      lockedZRotation = mDegToRad(0);
+      border = "0";
+      animSlider = "SequenceSlider";
+      GizmoProfile = "GlobalGizmoProfile";
+   };
+
+   new GuiControl(ViewHUD) {
+      profile = "GuiDefaultProfile";
+      horizSizing = "width";
+      vertSizing = "height";
+      position = "0 0";
+      extent = "800 600";
+      minExtent = "48 48";
+      visible = "1";
+      helpTag = "0";
+      useMouseEvents = "0";
+      passMouseEventsTo = "View";
+      isContainer = "1";
+      border = "0";
+
+      new GuiBitmapCtrl(Axis) {
+         canSaveDynamicFields = "0";
+         isContainer = "1";
+         Profile = "GuiContentProfile";
+         HorizSizing = "right";
+         VertSizing = "top";
+         Position = "4 564";
+         Extent = "43 30";
+         MinExtent = "43 30";
+         canSave = "1";
+         Visible = $Pref::MeshLoop::showAxis;
+         tooltipprofile = "GuiToolTipProfile";
+         hovertime = "1000";
+         alpha = "1";
+         color = "255 255 255 255";
+         unitClip = "0 0 1 1";
+         bitmap = "gui/images/axis.png";
+         useVariable = "0";
+         tile = "0";
+         page = "0";
+      };
+      
+      new GuiBitmapCtrl(Logos) {
+         canSaveDynamicFields = "0";
+         isContainer = "1";
+         Profile = "GuiContentProfile";
+         HorizSizing = "left";
+         VertSizing = "top";
+         Position = "672 536";
+         Extent = "128 64";
+         MinExtent = "128 64";
+         canSave = "1";
+         Visible = "1";
+         tooltipprofile = "GuiToolTipProfile";
+         hovertime = "1000";
+         alpha = "1";
+         color = "255 255 255 255";
+         unitClip = "0 0 1 1";
+         bitmap = "gui/images/logos.png";
+         useVariable = "0";
+         tile = "0";
+         page = "0";
+      };
+
+      new GuiTextCtrl(StatusBar)
+      {
+         profile = "GuiTextProfile";
+         horizSizing = "windowRelative";
+         vertSizing = "top";
+         position = "6 582";
+         extent = "500 22";
+         minExtent = "8 8";
+         visible = "1";
+         text="";
+      };
+
+      new GuiControl(AnimationVis) {
+         profile = "GuiDefaultProfile";
+         horizSizing = "relative";
+         vertSizing = "height";
+         position = "150 0";
+         extent = "500 620";
+         minExtent = "48 48";
+         visible = "0";
+         helpTag = "0";
+         useMouseEvents = "0";
+         passMouseEventsTo = "View";
+         isContainer = "1";
+         border = "0";
+
+         new GuiSliderCtrl(SequenceSlider) {
+            canSaveDynamicFields = "0";
+            isContainer = "0";
+            Profile = "GuiSliderProfile";
+            HorizSizing = "relative";
+            VertSizing = "top";
+            Position = "0 524";
+            Extent = "500 20";
+            MinExtent = "8 2";
+            canSave = "1";
+            Visible = "1";
+            tooltipprofile = "GuiToolTipProfile";
+            hovertime = "1000";
+            range = "0 1";
+            ticks = "3";
+            fluid = "1";
+            value = "0";
+            Variable = "$MeshLoop::SequencePosition";
+            altVariable = "$MeshLoop::SequenceFramePosition";
+            altMultiplier = "1";
+         };
+         
+         new GuiControl(AnimationCenterObjects) {
+            profile = "GuiDefaultProfile";
+            horizSizing = "center";
+            vertSizing = "top";
+            position = "75 540";
+            extent = "350 100";
+            minExtent = "130 20";
+            visible = "1";
+            helpTag = "0";
+            isContainer = "1";
+            border = "0";
+
+            new GuiControl(SpeedSliderObjects) {
+               profile = "GuiDefaultProfile";
+               horizSizing = "relative";
+               vertSizing = "top";
+               position = "220 10";
+               extent = "130 62";
+               minExtent = "130 20";
+               visible = "1";
+               helpTag = "0";
+               isContainer = "1";
+               border = "0";
+
+               new GuiSliderCtrl(SpeedSlider) {
+                  canSaveDynamicFields = "0";
+                  isContainer = "0";
+                  Profile = "GuiSliderProfile";
+                  HorizSizing = "right";
+                  VertSizing = "bottom";
+                  Position = "0 0";
+                  Extent = "130 20";
+                  MinExtent = "8 2";
+                  canSave = "1";
+                  Visible = "1";
+                  tooltipprofile = "GuiToolTipProfile";
+                  hovertime = "1000";
+                  range = "-4 4";
+                  ticks = "15";
+                  value = "1";
+                  snap = "0";
+                  fluid = "1";
+                  defaultValue = "1";
+                  tooltip = "Double-click to set to normal (or overridden) speed forward play, SHIFT-drag to snap.";
+                  Variable = "$MeshLoop::SpeedMultiplier";
+                  altVariable = "$MeshLoop::SpeedPercent";
+                  altMultiplier = "100";
+               };
+               
+               new GuiTextCtrl(SpeedSliderPercent)
+               {
+                  profile = "GuiCenterLightTextProfile";
+                  horizSizing = "right";
+                  vertSizing = "top";
+                  position = "0 30";
+                  extent = "130 22";
+                  text = "100%";
+               };
+               
+               new GuiTextCtrl()
+               {
+                  profile = "GuiCenterLightTextProfile";
+                  horizSizing = "right";
+                  vertSizing = "top";
+                  position = "0 15";
+                  extent = "40 22";
+                  text="<<";
+               };
+               
+               new GuiTextCtrl()
+               {
+                  profile = "GuiCenterLightTextProfile";
+                  horizSizing = "right";
+                  vertSizing = "top";
+                  position = "22 15";
+                  extent = "40 22";
+                  text="<";
+               };
+               
+               new GuiTextCtrl()
+               {
+                  profile = "GuiCenterLightTextProfile";
+                  horizSizing = "right";
+                  vertSizing = "top";
+                  position = "46 15";
+                  extent = "39 22";
+                  text="||";
+               };
+               
+               new GuiTextCtrl()
+               {
+                  profile = "GuiCenterLightTextProfile";
+                  horizSizing = "right";
+                  vertSizing = "top";
+                  position = "69 15";
+                  extent = "40 22";
+                  text=">";
+               };
+               
+               new GuiTextCtrl()
+               {
+                  profile = "GuiCenterLightTextProfile";
+                  horizSizing = "right";
+                  vertSizing = "top";
+                  position = "91 15";
+                  extent = "40 22";
+                  text=">>";
+               };
+            };
+            
+            new GuiTextEditCtrl()
+            {
+               profile = "GuiLightTextEditProfile";
+               horizSizing = "center";
+               vertSizing = "top";
+               position = "145 10";
+               extent = "72 22";
+               text="0.00";
+               maxLength = "5";
+               variable = "$MeshLoop::SequenceFramePosition";
+            };
+            
+            new GuiTextEditCtrl()
+            {
+               profile = "GuiTextEditProfile";
+               horizSizing = "center";
+               vertSizing = "top";
+               position = "145 30";
+               extent = "72 22";
+               text="0.00";
+               maxLength = "5";
+               variable = "$MeshLoop::SequencePosition";
+            };
+            
+            // ----------- buttons
+            
+            new GuiControl(AnimationButtons) {
+               profile = "GuiDefaultProfile";
+               horizSizing = "left";
+               vertSizing = "top";
+               position = "0 20";
+               extent = "130 20";
+               minExtent = "130 20";
+               visible = "1";
+               helpTag = "0";
+               isContainer = "1";
+               border = "0";
+
+               new GuiBitmapButtonCtrl(BtnFirstFrame) {
+                  canSaveDynamicFields = "0";
+                  Enabled = "1";
+                  isContainer = "0";
+                  Profile = "GuiButtonProfile";
+                  HorizSizing = "right";
+                  VertSizing = "top";
+                  Position = "0 0";
+                  Extent = "24 20";
+                  MinExtent = "8 2";
+                  canSave = "1";
+                  Visible = "1";
+                  Command = "View.setSequencePosition(0.0);";
+                  tooltipprofile = "GuiToolTipProfile";
+                  ToolTip = "First frame";
+                  hovertime = "1000";
+                  bitmap = "gui/images/animation/first";
+                  //buttonType = "ToggleButton";
+                  groupNum = "-1";
+                  text = "";
+                  useMouseEvents = "0";
+               };
+               new GuiBitmapButtonCtrl(BtnPrevFrame : BtnFirstFrame) {
+                  Position = "26 0";
+                  Command = "gotoPrevFrame(2);";
+                  ToolTip = "Previous frame";
+                  bitmap = "gui/images/animation/prev";
+               };
+               new GuiBitmapButtonCtrl(BtnPlayFrame : BtnFirstFrame) {
+                  Position = "52 0";
+                  Command = "playPause(1);";
+                  ToolTip = "Play / Pause";
+                  bitmap = "gui/images/animation/play";
+               };
+               new GuiBitmapButtonCtrl(BtnNextFrame : BtnFirstFrame) {
+                  Position = "78 0";
+                  Command = "gotoNextFrame(2);";
+                  ToolTip = "Next frame";
+                  bitmap = "gui/images/animation/next";
+               };
+               new GuiBitmapButtonCtrl(BtnLastFrame : BtnFirstFrame) {
+                  Position = "104 0";
+                  Command = "View.setSequencePosition(($MeshLoop::FrameCount-1)/$MeshLoop::FrameCount);";
+                  ToolTip = "Last frame";
+                  bitmap = "gui/images/animation/last";
+               };
+            };
+         };
+
+         new GuiTextEditCtrl(SequenceFrameMSecs)
+         {
+            profile = "GuiLightLeftTextEditProfile";
+            horizSizing = "right";
+            vertSizing = "top";
+            position = "0 500";
+            extent = "100 22";
+            text="0.00";
+            maxLength = "5";
+            variable = "$MeshLoop::SequenceFrameMSecs";
+         };
+         
+         new GuiButtonCtrl(SelectedSequence) {
+            Profile = "GuiLeftDropdownButtonProfile";
+            HorizSizing = "left";
+            VertSizing = "top";
+            Position = "340 500";
+            Extent = "160 18";
+            text = "";
+            visible = true;
+         };
+         
+         new GuiBitmapButtonCtrl(BtnRepeat : BtnFirstFrame) {
+            Position = "308 499";
+            HorizSizing = "left";
+            Command = "updateAnimationRepeat();";
+            buttonType = "ToggleButton";
+            ToolTip = "Cyclic";
+            bitmap = "gui/images/animation/repeat";
+            useHighlight = false;
+         };
+
+         new GuiBitmapButtonCtrl(BtnBlend : BtnFirstFrame) {
+            Position = "282 499";
+            HorizSizing = "left";
+            Command = "updateAnimationBlend();";
+            buttonType = "ToggleButton";
+            ToolTip = "Blends";
+            bitmap = "gui/images/animation/blend";
+            useHighlight = false;
+         };
+
+         new GuiTextCtrl()
+         {
+            profile = "GuiLightLargeTextProfile";
+            horizSizing = "right";
+            vertSizing = "top";
+            position = "0 551";
+            extent = "52 22";
+            text="0";
+         };
+         
+         new GuiTextCtrl()
+         {
+            profile = "GuiRightLightLargeTextProfile";
+            horizSizing = "left";
+            vertSizing = "top";
+            position = "446 551";
+            extent = "52 22";
+            text="1";
+            variable = "$MeshLoop::FrameCount";
+         };
+      
+         new GuiWindowCtrl(SequencesVis) {
+            resizeWidth = "0";
+            resizeHeight = "1";
+            resizeTop = "1";
+            resizeBottom = "0";
+            canMove = "0";
+            canClose = "1";
+            closeCommand = "SequencesVisClose();";
+            canMinimize = "0";
+            canMaximize = "0";
+            minSize = "160 90";
+            EdgeSnap = "1";
+            text = "Sequences";
+            Margin = "0 0 0 0";
+            Padding = "0 0 0 0";
+            AnchorTop = "1";
+            AnchorBottom = "0";
+            AnchorLeft = "1";
+            AnchorRight = "0";
+            isContainer = "1";
+            Profile = "GuiWindowProfile";
+            HorizSizing = "left";
+            VertSizing = "top";
+            position = "340 260";
+            Extent = "160 240";
+            MinExtent = "160 90";
+            canSave = "1";
+            Visible = "0";
+            tooltipprofile = "GuiToolTipProfile";
+            hovertime = "1000";
+            canSaveDynamicFields = "0";
+                  
+            new GuiScrollCtrl() {
+               willFirstRespond = "1";
+               hScrollBar = "alwaysOff";
+               vScrollBar = "dynamic";
+               lockHorizScroll = "1";
+               lockVertScroll = "0";
+               constantThumbHeight = "0";
+               childMargin = "2 0";
+               mouseWheelScrollSpeed = "-1";
+               Docking = "Client";
+               Margin = "0 0 0 0";
+               Padding = "0 0 0 0";
+               AnchorTop = "1";
+               AnchorBottom = "0";
+               AnchorLeft = "1";
+               AnchorRight = "0";
+               isContainer = "1";
+               Profile = "GuiScrollProfile";
+               HorizSizing = "width";
+               VertSizing = "height";
+               position = "1 21";
+               Extent = "160 186";
+               MinExtent = "8 2";
+               canSave = "1";
+               Visible = "1";
+               tooltipprofile = "GuiToolTipProfile";
+               hovertime = "1000";
+               canSaveDynamicFields = "0";
+
+               new GuiTextListCtrl(SequenceList) {
+                  canSaveDynamicFields = "0";
+                  isContainer = "1";
+                  Profile = "GuiTextListProfile";
+                  HorizSizing = "width";
+                  VertSizing = "height";
+                  Position = "0 0";
+                  Extent = "160 16";
+                  MinExtent = "8 11";
+                  canSave = "1";
+                  Visible = "1";
+                  tooltipprofile = "GuiToolTipProfile";
+                  hovertime = "1000";
+                  enumerate = "0";
+                  resizeCell = "1";
+                  columns = "0";
+                  fitParentWidth = "1";
+                  clipColumnText = "0";
+               };
+            };
+         };
+      };
+      new GuiWindowCtrl(MeshVis) {
+         resizeWidth = "1";
+         resizeHeight = "1";
+         canMove = "1";
+         canClose = "1";
+         closeCommand = "MeshVisClose();";
+         canMinimize = "0";
+         canMaximize = "0";
+         minSize = "50 50";
+         EdgeSnap = "1";
+         text = "Meshes";
+         Margin = "0 0 0 0";
+         Padding = "0 0 0 0";
+         AnchorTop = "1";
+         AnchorBottom = "0";
+         AnchorLeft = "1";
+         AnchorRight = "0";
+         isContainer = "1";
+         Profile = "GuiWindowProfile";
+         HorizSizing = "left";
+         VertSizing = "bottom";
+         position = "640 0";
+         Extent = "160 140";
+         MinExtent = "8 2";
+         canSave = "1";
+         Visible = "1";
+         tooltipprofile = "GuiToolTipProfile";
+         hovertime = "1000";
+         canSaveDynamicFields = "0";
+               
+         new GuiScrollCtrl() {
+            willFirstRespond = "1";
+            hScrollBar = "alwaysOff";
+            vScrollBar = "dynamic";
+            lockHorizScroll = "1";
+            lockVertScroll = "0";
+            constantThumbHeight = "0";
+            childMargin = "2 0";
+            mouseWheelScrollSpeed = "-1";
+            Docking = "Client";
+            Margin = "0 0 0 0";
+            Padding = "0 0 0 0";
+            AnchorTop = "1";
+            AnchorBottom = "0";
+            AnchorLeft = "1";
+            AnchorRight = "0";
+            isContainer = "1";
+            Profile = "GuiScrollProfile";
+            HorizSizing = "width";
+            VertSizing = "height";
+            position = "1 21";
+            Extent = "113 186";
+            MinExtent = "8 2";
+            canSave = "1";
+            Visible = "1";
+            tooltipprofile = "GuiToolTipProfile";
+            hovertime = "1000";
+            canSaveDynamicFields = "0";
+
+            new GuiStackControl() {
+               StackingType = "Vertical";
+               HorizStacking = "Left to Right";
+               VertStacking = "Top to Bottom";
+               Padding = "1";
+               DynamicSize = "1";
+               ChangeChildSizeToFit = "1";
+               ChangeChildPosition = "1";
+               isContainer = "1";
+               Profile = "GuiDefaultProfile";
+               HorizSizing = "right";
+               VertSizing = "bottom";
+               position = "3 1";
+               Extent = "107 16";
+               MinExtent = "16 16";
+               canSave = "1";
+               Visible = "1";
+               tooltipprofile = "GuiToolTipProfile";
+               hovertime = "1000";
+               internalName = "theVisOptionsList";
+               canSaveDynamicFields = "0";
+            };
+         };
+      };
+      new GuiWindowCtrl(NodeVis) {
+         resizeWidth = "1";
+         resizeHeight = "1";
+         canMove = "1";
+         canClose = "1";
+         closeCommand = "NodeVisClose();";
+         canMinimize = "0";
+         canMaximize = "0";
+         minSize = "50 50";
+         EdgeSnap = "1";
+         text = "Nodes";
+         Margin = "0 0 0 0";
+         Padding = "0 0 0 0";
+         AnchorTop = "1";
+         AnchorBottom = "0";
+         AnchorLeft = "1";
+         AnchorRight = "0";
+         isContainer = "1";
+         Profile = "GuiWindowProfile";
+         HorizSizing = "left";
+         VertSizing = "bottom";
+         position = "640 140";
+         Extent = "160 200";
+         MinExtent = "8 2";
+         canSave = "1";
+         Visible = "1";
+         tooltipprofile = "GuiToolTipProfile";
+         hovertime = "1000";
+         canSaveDynamicFields = "0";
+               
+         new GuiScrollCtrl() {
+            willFirstRespond = "1";
+            hScrollBar = "alwaysOff";
+            vScrollBar = "dynamic";
+            lockHorizScroll = "1";
+            lockVertScroll = "0";
+            constantThumbHeight = "0";
+            childMargin = "2 0";
+            mouseWheelScrollSpeed = "-1";
+            Docking = "Client";
+            Margin = "0 0 0 0";
+            Padding = "0 0 0 0";
+            AnchorTop = "1";
+            AnchorBottom = "0";
+            AnchorLeft = "1";
+            AnchorRight = "0";
+            isContainer = "1";
+            Profile = "GuiScrollProfile";
+            HorizSizing = "width";
+            VertSizing = "height";
+            position = "1 21";
+            Extent = "113 186";
+            MinExtent = "8 2";
+            canSave = "1";
+            Visible = "1";
+            tooltipprofile = "GuiToolTipProfile";
+            hovertime = "1000";
+            canSaveDynamicFields = "0";
+
+            new GuiStackControl() {
+               StackingType = "Vertical";
+               HorizStacking = "Left to Right";
+               VertStacking = "Top to Bottom";
+               Padding = "1";
+               DynamicSize = "1";
+               ChangeChildSizeToFit = "1";
+               ChangeChildPosition = "1";
+               isContainer = "1";
+               Profile = "GuiDefaultProfile";
+               HorizSizing = "right";
+               VertSizing = "bottom";
+               position = "3 1";
+               Extent = "107 16";
+               MinExtent = "16 16";
+               canSave = "1";
+               Visible = "1";
+               tooltipprofile = "GuiToolTipProfile";
+               hovertime = "1000";
+               internalName = "theVisOptionsList";
+               canSaveDynamicFields = "0";
+            };
+         };
+      };
+      new GuiWindowCtrl(SkinVis) {
+         resizeWidth = "1";
+         resizeHeight = "1";
+         canMove = "1";
+         canClose = "1";
+         closeCommand = "SkinVisClose();";
+         canMinimize = "0";
+         canMaximize = "0";
+         minSize = "50 50";
+         EdgeSnap = "1";
+         text = "Skins";
+         Margin = "0 0 0 0";
+         Padding = "0 0 0 0";
+         AnchorTop = "1";
+         AnchorBottom = "0";
+         AnchorLeft = "1";
+         AnchorRight = "0";
+         isContainer = "1";
+         Profile = "GuiWindowProfile";
+         HorizSizing = "left";
+         VertSizing = "bottom";
+         position = "640 340";
+         Extent = "160 100";
+         MinExtent = "8 2";
+         canSave = "1";
+         Visible = "1";
+         tooltipprofile = "GuiToolTipProfile";
+         hovertime = "1000";
+         canSaveDynamicFields = "0";
+               
+         new GuiScrollCtrl() {
+            willFirstRespond = "1";
+            hScrollBar = "alwaysOff";
+            vScrollBar = "dynamic";
+            lockHorizScroll = "1";
+            lockVertScroll = "0";
+            constantThumbHeight = "0";
+            childMargin = "2 0";
+            mouseWheelScrollSpeed = "-1";
+            Docking = "Client";
+            Margin = "0 0 0 0";
+            Padding = "0 0 0 0";
+            AnchorTop = "1";
+            AnchorBottom = "0";
+            AnchorLeft = "1";
+            AnchorRight = "0";
+            isContainer = "1";
+            Profile = "GuiScrollProfile";
+            HorizSizing = "width";
+            VertSizing = "height";
+            position = "1 21";
+            Extent = "113 186";
+            MinExtent = "8 2";
+            canSave = "1";
+            Visible = "1";
+            tooltipprofile = "GuiToolTipProfile";
+            hovertime = "1000";
+            canSaveDynamicFields = "0";
+
+            new GuiStackControl() {
+               StackingType = "Vertical";
+               HorizStacking = "Left to Right";
+               VertStacking = "Top to Bottom";
+               Padding = "1";
+               DynamicSize = "1";
+               ChangeChildSizeToFit = "1";
+               ChangeChildPosition = "1";
+               isContainer = "1";
+               Profile = "GuiDefaultProfile";
+               HorizSizing = "right";
+               VertSizing = "bottom";
+               position = "3 1";
+               Extent = "107 16";
+               MinExtent = "16 16";
+               canSave = "1";
+               Visible = "1";
+               tooltipprofile = "GuiToolTipProfile";
+               hovertime = "1000";
+               internalName = "theVisOptionsList";
+               canSaveDynamicFields = "0";
+            };
+         };
+      };
+      new GuiControl(LightVis) {
+         profile = "GuiDefaultProfile";
+         horizSizing = "right";
+         vertSizing = "top";
+         position = "10 330";
+         extent = "40 230";
+         minExtent = "40 230";
+         visible = "1";
+         helpTag = "0";
+         isContainer = "1";
+         border = "0";
+         
+         new GuiCheckBoxCtrl(GuiCamBtn) {
+            canSaveDynamicFields = "0";
+            isContainer = "0";
+            Profile = "GuiCamRadioProfile";
+            HorizSizing = "left";
+            VertSizing = "bottom";
+            Position = "0 0";
+            Extent = "40 40";
+            MinExtent = "40 40";
+            canSave = "1";
+            Visible = "1";
+            tooltipprofile = "GuiToolTipProfile";
+            hovertime = "1000";
+            text = "";
+            groupNum = "1";
+            buttonType = "RadioButton";
+            useMouseEvents = "0";
+            useInactiveState = "0";
+            Command = "setCam(\"0\");";
+         };
+         new GuiCheckBoxCtrl(GuiLight1Btn : GuiCamBtn) {
+            Profile = "GuiLight1RadioProfile";
+            Position = "0 80";
+            Command = "setCam(\"1\");";
+         };
+         new GuiCheckBoxCtrl(GuiLight2Btn : GuiCamBtn) {
+            Profile = "GuiLight2RadioProfile";
+            Position = "0 130";
+            Command = "setCam(\"2\");";
+         };
+         new GuiCheckBoxCtrl(GuiLight3Btn : GuiCamBtn) {
+            Profile = "GuiLight3RadioProfile";
+            Position = "0 180";
+            Command = "setCam(\"3\");";
+         };
+      };
+
+      new GuiWindowCtrl(LightSetupWindow) {
+         resizeWidth = "0";
+         resizeHeight = "0";
+         canMove = "1";
+         canClose = "1";
+         closeCommand = "LightSetupClose();";
+         canMinimize = "0";
+         canMaximize = "0";
+         minSize = "50 50";
+         EdgeSnap = "1";
+         text = "Light 1";
+         Margin = "0 0 0 0";
+         Padding = "0 0 0 0";
+         AnchorTop = "1";
+         AnchorBottom = "0";
+         AnchorLeft = "1";
+         AnchorRight = "0";
+         isContainer = "1";
+         Profile = "GuiWindowProfile";
+         HorizSizing = "left";
+         VertSizing = "bottom";
+         position = "76 26";
+         Extent = "196 192";
+         MinExtent = "8 2";
+         canSave = "1";
+         Visible = "0";
+         tooltipprofile = "GuiToolTipProfile";
+         hovertime = "1000";
+         canSaveDynamicFields = "0";
+
+         new GuiTextCtrl()
+         {
+            profile = "GuiTextProfile";
+            horizSizing = "windowRelative";
+            vertSizing = "top";
+            position = "10 28";
+            extent = "100 22";
+            minExtent = "8 8";
+            visible = "1";
+            text="Light color";
+         };
+         new GuiSwatchButtonCtrl(LightSetupColor) {
+            color = "1 1 1 1";
+            groupNum = "-1";
+            buttonType = "PushButton";
+            useMouseEvents = "0";
+            isContainer = "0";
+            Profile = "GuiInspectorSwatchButtonProfile";
+            HorizSizing = "right";
+            VertSizing = "bottom";
+            position = "36 50";
+            Extent = "20 20";
+            MinExtent = "8 2";
+            canSave = "1";
+            Visible = "1";
+            Command = "";
+            tooltipprofile = "GuiToolTipProfile";
+            hovertime = "1000";
+            ToolTip = "Light color";
+            canSaveDynamicFields = "0";
+         };
+         new GuiTextCtrl(LightSetupColorCode)
+         {
+            profile = "GuiTextProfile";
+            horizSizing = "right";
+            vertSizing = "bottom";
+            position = "62 48";
+            extent = "128 22";
+            minExtent = "8 8";
+            visible = "1";
+            text="#";
+         };
+         new GuiTextCtrl()
+         {
+            profile = "GuiTextProfile";
+            horizSizing = "windowRelative";
+            vertSizing = "top";
+            position = "10 70";
+            extent = "100 22";
+            minExtent = "8 8";
+            visible = "1";
+            text="Ambient color";
+         };
+         new GuiSwatchButtonCtrl(LightSetupAmbient) {
+            color = "1 1 1 1";
+            groupNum = "-1";
+            buttonType = "PushButton";
+            useMouseEvents = "0";
+            isContainer = "0";
+            Profile = "GuiInspectorSwatchButtonProfile";
+            HorizSizing = "right";
+            VertSizing = "bottom";
+            position = "36 92";
+            Extent = "20 20";
+            MinExtent = "8 2";
+            canSave = "1";
+            Visible = "1";
+            Command = "";
+            tooltipprofile = "GuiToolTipProfile";
+            hovertime = "1000";
+            ToolTip = "Ambient color";
+            canSaveDynamicFields = "0";
+         };
+         new GuiTextCtrl(LightSetupAmbientCode)
+         {
+            profile = "GuiTextProfile";
+            horizSizing = "right";
+            vertSizing = "bottom";
+            position = "62 90";
+            extent = "128 22";
+            minExtent = "8 8";
+            visible = "1";
+            text="#";
+         };
+         new GuiTextCtrl()
+         {
+            profile = "GuiTextProfile";
+            horizSizing = "windowRelative";
+            vertSizing = "top";
+            position = "10 112";
+            extent = "100 22";
+            minExtent = "8 8";
+            visible = "1";
+            text="Brightness";
+         };
+         new GuiSliderCtrl(BrightnessSlider) {
+            canSaveDynamicFields = "0";
+            isContainer = "0";
+            Profile = "GuiSliderProfile";
+            HorizSizing = "relative";
+            VertSizing = "top";
+            Position = "36 130";
+            Extent = "100 20";
+            MinExtent = "8 2";
+            canSave = "1";
+            Visible = "1";
+            tooltipprofile = "GuiToolTipProfile";
+            hovertime = "1000";
+            range = "0 20";
+            ticks = "19";
+            fluid = "1";
+            value = "2";
+         };
+         new GuiTextCtrl(BrightnessSliderVal)
+         {
+            profile = "GuiTextProfile";
+            horizSizing = "windowRelative";
+            vertSizing = "left";
+            position = "142 134";
+            extent = "20 22";
+            minExtent = "8 8";
+            visible = "1";
+            text="";
+         };
+         new GuiCheckBoxCtrl(LightEnabled)
+         {
+            canSaveDynamicFields = "0";
+            isContainer = "0";
+            Profile = "GuiCheckBoxListProfile";
+            HorizSizing = "right";
+            VertSizing = "bottom";
+            Position = "10 168";
+            Extent = "100 18";
+            MinExtent = "8 2";
+            canSave = "1";
+            Visible = "1";
+            Variable = "";
+            tooltipprofile = "GuiToolTipProfile";
+            hovertime = "1000";
+            text = "Enabled";
+            groupNum = "-1";
+            buttonType = "ToggleButton";
+            useMouseEvents = "0";
+            useInactiveState = "0";
+         };
+      };
+      new GuiWindowCtrl(LODWindow) {
+         resizeWidth = "0";
+         resizeHeight = "0";
+         canMove = "1";
+         canClose = "1";
+         closeCommand = "LODClose();";
+         canMinimize = "0";
+         canMaximize = "0";
+         minSize = "230 84";
+         EdgeSnap = "1";
+         text = "Level Of Detail (LOD)";
+         Margin = "0 0 0 0";
+         Padding = "0 0 0 0";
+         AnchorTop = "1";
+         AnchorBottom = "0";
+         AnchorLeft = "1";
+         AnchorRight = "0";
+         isContainer = "1";
+         Profile = "GuiWindowProfile";
+         HorizSizing = "left";
+         VertSizing = "bottom";
+         position = "176 126";
+         Extent = "230 74";
+         MinExtent = "230 74";
+         canSave = "1";
+         Visible = "0";
+         tooltipprofile = "GuiToolTipProfile";
+         hovertime = "1000";
+         canSaveDynamicFields = "0";
+
+         new GuiSliderCtrl(LODSlider) {
+            canSaveDynamicFields = "0";
+            isContainer = "0";
+            Profile = "GuiSliderProfile";
+            HorizSizing = "relative";
+            VertSizing = "top";
+            Position = "10 20";
+            Extent = "100 20";
+            MinExtent = "8 2";
+            canSave = "1";
+            Visible = "1";
+            tooltipprofile = "GuiToolTipProfile";
+            hovertime = "1000";
+            range = "0 0";
+            ticks = "0";
+            snap = "1";
+            fluid = "0";
+            value = "0";
+            canControl = !$MeshLoop::AutoLOD;
+         };
+         new GuiTextCtrl(LODSliderVal)
+         {
+            profile = "GuiCenterTextProfile";
+            horizSizing = "windowRelative";
+            vertSizing = "left";
+            position = "115 34";
+            extent = "20 22";
+            minExtent = "8 8";
+            visible = "1";
+            text="0";
+         };
+         new GuiTextCtrl(LODSliderSize)
+         {
+            profile = "GuiTextProfile";
+            horizSizing = "windowRelative";
+            vertSizing = "left";
+            position = "140 34";
+            extent = "80 22";
+            minExtent = "8 8";
+            visible = "1";
+            text="0 pixels";
+         };
+         new GuiTextCtrl(LODSliderPolys)
+         {
+            profile = "GuiTextProfile";
+            horizSizing = "windowRelative";
+            vertSizing = "left";
+            position = "140 58";
+            extent = "80 22";
+            minExtent = "8 8";
+            visible = "1";
+            text="0 polygons";
+         };
+         new GuiCheckBoxCtrl(LODEnabled)
+         {
+            canSaveDynamicFields = "0";
+            isContainer = "0";
+            Profile = "GuiCheckBoxListProfile";
+            HorizSizing = "right";
+            VertSizing = "bottom";
+            Position = "10 60";
+            Extent = "120 18";
+            MinExtent = "8 2";
+            canSave = "1";
+            Visible = "1";
+            Variable = "";
+            tooltipprofile = "GuiToolTipProfile";
+            hovertime = "1000";
+            text = "Automatic (locked)";
+            groupNum = "-1";
+            buttonType = "ToggleButton";
+            useMouseEvents = "0";
+            useInactiveState = "0";
+            Variable = "$MeshLoop::AutoLOD";
+         };
+      };
+      new GuiWindowCtrl(PositioningVis) {
+         resizeWidth = "0";
+         resizeHeight = "0";
+         canMove = "1";
+         canClose = "1";
+         closeCommand = "PositioningVisClose();";
+         canMinimize = "0";
+         canMaximize = "0";
+         minSize = "230 184";
+         EdgeSnap = "1";
+         text = "3D -> 2D tools";
+         Margin = "0 0 0 0";
+         Padding = "0 0 0 0";
+         AnchorTop = "1";
+         AnchorBottom = "0";
+         AnchorLeft = "1";
+         AnchorRight = "0";
+         isContainer = "1";
+         Profile = "GuiWindowProfile";
+         HorizSizing = "left";
+         VertSizing = "bottom";
+         position = "176 126";
+         Extent = "230 174";
+         MinExtent = "230 174";
+         canSave = "1";
+         Visible = "0";
+         tooltipprofile = "GuiToolTipProfile";
+         hovertime = "1000";
+         canSaveDynamicFields = "0";
+
+         new GuiSliderCtrl(PositioningDistanceSlider) {
+            canSaveDynamicFields = "0";
+            isContainer = "0";
+            Profile = "GuiSliderProfile";
+            HorizSizing = "right";
+            VertSizing = "bottom";
+            Position = "10 34";
+            Extent = "100 20";
+            MinExtent = "8 2";
+            canSave = "1";
+            Visible = "1";
+            tooltipprofile = "GuiToolTipProfile";
+            hovertime = "1000";
+            range = "1 999";
+            ticks = "999";
+            snap = "1";
+            fluid = "0";
+            value = "3";
+         };
+         new GuiTextCtrl(PositioningDistanceSliderVal)
+         {
+            profile = "GuiTextProfile";
+            horizSizing = "right";
+            vertSizing = "bottom";
+            position = "120 34";
+            extent = "120 22";
+            minExtent = "8 8";
+            visible = "1";
+            text="";
+         };
+         new GuiSliderCtrl(PositioningRotationSlider) {
+            canSaveDynamicFields = "0";
+            isContainer = "0";
+            Profile = "GuiSliderProfile";
+            HorizSizing = "right";
+            VertSizing = "bottom";
+            Position = "10 58";
+            Extent = "100 20";
+            MinExtent = "8 2";
+            canSave = "1";
+            Visible = "1";
+            tooltipprofile = "GuiToolTipProfile";
+            hovertime = "1000";
+            range = "0 345";
+            ticks = "22";
+            snap = "1";
+            fluid = "0";
+            value = "3";
+         };
+         new GuiTextCtrl(PositioningRotationSliderVal)
+         {
+            profile = "GuiTextProfile";
+            horizSizing = "right";
+            vertSizing = "bottom";
+            position = "120 58";
+            extent = "120 22";
+            minExtent = "8 8";
+            visible = "1";
+            text="";
+         };         
+         new GuiButtonCtrl(BtnPositioningCaptureFrames) {
+            canSaveDynamicFields = "0";
+            Enabled = "1";
+            isContainer = "0";
+            Profile = "GuiButtonProfile";
+            HorizSizing = "right";
+            VertSizing = "top";
+            Position = "10 88";
+            Extent = "144 20";
+            MinExtent = "8 2";
+            canSave = "1";
+            Visible = "1";
+            Command = "captureAllFrames();";
+            tooltipprofile = "GuiToolTipProfile";
+            ToolTip = "";
+            hovertime = "1000";
+            //bitmap = "gui/images/animation/play";
+            //buttonType = "ToggleButton";
+            groupNum = "-1";
+            text = "Capture all frames";
+            useMouseEvents = "0";
+         };
+         new GuiSliderCtrl(PositioningElevationSlider) {
+            canSaveDynamicFields = "0";
+            isContainer = "0";
+            Profile = "GuiSliderProfile";
+            HorizSizing = "right";
+            VertSizing = "bottom";
+            Position = "10 118";
+            Extent = "100 20";
+            MinExtent = "8 2";
+            canSave = "1";
+            Visible = "1";
+            tooltipprofile = "GuiToolTipProfile";
+            hovertime = "1000";
+            range = "-90 90";
+            ticks = "11";
+            snap = "1";
+            fluid = "0";
+            value = "3";
+         };
+         new GuiTextCtrl(PositioningElevationSliderVal)
+         {
+            profile = "GuiTextProfile";
+            horizSizing = "right";
+            vertSizing = "bottom";
+            position = "120 118";
+            extent = "120 22";
+            minExtent = "8 8";
+            visible = "1";
+            text="";
+         };         
+      };
+   };
+};
+//--- OBJECT WRITE END ---
+
+exec("./console.gui");
+exec("./colorPicker.gui");
+
+function PositioningDistanceSlider::onValueChanged(%this)
+{
+   if ($Pref::MeshLoop::ortho) {
+      eval("$Pref::MeshLoop::Fov::ortho = %this.value/2;");
+      updateCam();
+   } else {
+      eval("$Pref::MeshLoop::orbitDist = %this.value;");
+      updateCam();
+   }
+}
+
+function PositioningRotationSlider::onValueChanged(%this)
+{
+   eval("$Pref::MeshLoop::modelRotation = %this.value;");
+   updateCam();
+}
+
+function PositioningElevationSlider::onValueChanged(%this)
+{
+   eval("$Pref::MeshLoop::modelElevation = %this.value;");
+   View.lockedXRotation = mDegToRad(%this.value);
+   updateCam();
+}
+
+function PositioningVis::saveDims(%this)
+{
+   $Pref::MeshLoop::PositioningVis::Position = %this.getPosition();
+   $Pref::MeshLoop::PositioningVis::Extent = %this.getExtent();
+}
+
+function captureFramesFrom(%frame, %callback)
+{
+   %framecount = View.getSequenceFrameCount($MeshLoop::ActiveSequenceID);
+   if (%frame >= %framecount) {
+      call(%callback);
+      return;
+   }
+   
+   %framestr = %frame;
+   if (strlen(%framestr)==1)
+      %framestr = "0" @ %framestr;
+
+   %frame++;
+
+   %shot = $Pref::MeshLoop::lastPath @ "/" @ $targetBase @ "_" @ View.getSequenceName($MeshLoop::ActiveSequenceID) @ "-" @ mRound(PositioningRotationSlider.getValue()) @ "-" @ mRound(PositioningElevationSlider.getValue()) @ "." @ %framestr @ ".png";
+   if ($Pref::MeshLoop::bg==0) {
+      View.capture(%shot);
+   } else {
+      screenShot(%shot, "PNG");
+   }
+   View.setSequencePosition(%frame/%framecount);
+   schedule(1000, 0, "captureFramesFrom", %frame, %callback);
+}
+
+function captureAllFrames()
+{
+   if (SpeedSlider.getValue()!=0)
+      playPause(1);
+
+   View.setSequencePosition(0);
+
+   viewHudVisible(false);
+
+   schedule(1000, 0, "captureFramesFrom", 0, "captureAllFramesDone");
+}
+
+function captureAllFramesDone()
+{
+   View.setSequencePosition(0);
+
+   viewHudVisible(true);
+}

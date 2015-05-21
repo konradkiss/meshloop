@@ -1,0 +1,21 @@
+/Tickets
+buildFiles/*
+/Engine/bin
+/Engine/lib
+*Plugin.dll
+*Plugin.exp
+*Plugin.ilk
+*Plugin.lib
+*DEBUG.dll
+*DEBUG.exe
+*DEBUG.exp
+*DEBUG.ilk
+*DEBUG.lib
+*MeshLoop.dll
+*MeshLoop.exe
+*MeshLoop.exp
+*MeshLoop.ilk
+*MeshLoop.lib
+console.log
+/My\ Projects/Meshloop/web
+/My\ Projects/Meshloop/versions
